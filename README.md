@@ -1,6 +1,6 @@
-# Projeto Arduino Color Sorter
+# Projeto Classificador de Cores Arduino
 
-Este projeto implementa um classificador de cores usando Arduino, um sensor de cor TCS3200/TCS230 e dois servos motores. Ele foi inspirado no projeto encontrado em [How To Mechatronics](https://howtomechatronics.com/projects/arduino-color-sorter-project/).
+Este projeto implementa um classificador de cores usando Arduino, um sensor de cor TCS3200/TCS230 e dois servos motores.
 
 ## Instalação
 
