@@ -2,6 +2,9 @@
 
 Este projeto implementa um classificador de cores usando Arduino, um sensor de cor TCS3200/TCS230 e dois servos motores.
 
+![Texto Alternativo](https://github.com/viniciuslevi/colorsSorter/blob/main/projeto.jpg)
+
+
 ## Instalação
 
 ### Conexão de Hardware
