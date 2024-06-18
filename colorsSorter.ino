@@ -33,11 +33,16 @@ int color;
 int frequency;
 
 void setup() {  
-  
+
+  //MATRIZ DE CLASSIFICAÇÃO DE CORES
+  //matrix[X][Y].first, diz respeito ao parametro Y minimo que a cor X precisa ter. Enquanto matrix[X][Y].second, é o máximo.
+  // 0:Vermelho, 1: Verde, 2: Azul
+  //Por exemplo, matrix[0][2].second = 34 diz que o 34 é o máximo do do parametro Blue que se precisa ter para ser considerado vermelho;
+
    //configuração cor vermelho
-  matrix[0][0].first = 36; matrix[0][0].second = 46; //minimo e maximo do Red
-  matrix[0][1].first = 39; matrix[0][1].second = 50;
-  matrix[0][2].first = 25; matrix[0][2].second = 34;
+  matrix[0][0].first = 36; matrix[0][0].second = 46; //minimo e maximo do parametro Red
+  matrix[0][1].first = 39; matrix[0][1].second = 50; //minimo e maximo do parametro Green
+  matrix[0][2].first = 25; matrix[0][2].second = 34; //minimo e maximo do parametro blue
 
    //configuração cor verde
   matrix[1][0].first = 32; matrix[1][0].second = 38; //configuração cor verde
