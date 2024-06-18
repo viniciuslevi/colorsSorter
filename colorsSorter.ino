@@ -12,8 +12,8 @@
 #define SHORT 100
 
 struct Pair {
-  int first;
-  int second;
+  int min;
+  int max;
 }; //Criando a estutura de pares
 Pair matrix[4][3]; //Declarando a matriz de espectro de cores
 
@@ -35,29 +35,29 @@ int frequency;
 void setup() {  
 
   //MATRIZ DE CLASSIFICAÇÃO DE CORES
-  //matrix[X][Y].first, diz respeito ao parametro Y minimo que a cor X precisa ter. Enquanto matrix[X][Y].second, é o máximo.
+  //matrix[X][Y].min, diz respeito ao parametro Y minimo que a cor X precisa ter. Enquanto matrix[X][Y].max, é o máximo.
   // 0:Vermelho, 1: Verde, 2: Azul
-  //Por exemplo, matrix[0][2].second = 34 diz que o 34 é o máximo do do parametro Blue que se precisa ter para ser considerado vermelho;
+  //Por exemplo, "matrix[0][2].max = 34" diz que o 34 é o máximo do do parametro Blue que se precisa ter para ser considerado vermelho;
 
    //configuração cor vermelho
-  matrix[0][0].first = 36; matrix[0][0].second = 46; //minimo e maximo do parametro Red
-  matrix[0][1].first = 39; matrix[0][1].second = 50; //minimo e maximo do parametro Green
-  matrix[0][2].first = 25; matrix[0][2].second = 34; //minimo e maximo do parametro blue
+  matrix[0][0].min = 36; matrix[0][0].max = 46; //minimo e maximo do parametro Red
+  matrix[0][1].min = 39; matrix[0][1].max = 50; //minimo e maximo do parametro Green
+  matrix[0][2].min = 25; matrix[0][2].max = 34; //minimo e maximo do parametro blue
 
    //configuração cor verde
-  matrix[1][0].first = 32; matrix[1][0].second = 38; //configuração cor verde
-  matrix[1][1].first = 24; matrix[1][1].second = 31;
-  matrix[1][2].first = 18; matrix[1][2].second = 21;
+  matrix[1][0].min = 32; matrix[1][0].max = 38; //configuração cor verde
+  matrix[1][1].min = 24; matrix[1][1].max = 31;
+  matrix[1][2].min = 18; matrix[1][2].max = 21;
 
    //configuração cor azul
-  matrix[2][0].first = 47; matrix[2][0].second = 53; //configuração cor azul
-  matrix[2][1].first = 37; matrix[2][1].second = 45;
-  matrix[2][2].first = 25; matrix[2][2].second = 30;
+  matrix[2][0].min = 47; matrix[2][0].max = 53; //configuração cor azul
+  matrix[2][1].min = 37; matrix[2][1].max = 45;
+  matrix[2][2].min = 25; matrix[2][2].max = 30;
 
    //configuração cor branco
-  matrix[3][0].first = 21; matrix[3][0].second = 31; // configuração cor branca
-  matrix[3][1].first = 18; matrix[3][1].second = 28;
-  matrix[3][2].first = 11; matrix[3][2].second = 21;
+  matrix[3][0].min = 21; matrix[3][0].max = 31; // configuração cor branca
+  matrix[3][1].min = 18; matrix[3][1].max = 28;
+  matrix[3][2].min = 11; matrix[3][2].max = 21;
 
   servo1.attach(pinoServo1); // Associação do pino digital ao objeto do tipo servo
   servo1.write(initialServo1Position); // Inicia o motor na posição 0º
@@ -151,30 +151,30 @@ int ETAPA2() {
   delay(speed*100);
 
   // Verificando se a cor é vermelha
-  if(red >= matrix[0][0].first && red <= matrix[0][0].second
-    && green >= matrix[0][1].first && green <= matrix[0][1].second
-    && blue >= matrix[0][2].first && blue <= matrix[0][2].second) {
+  if(red >= matrix[0][0].min && red <= matrix[0][0].max
+    && green >= matrix[0][1].min && green <= matrix[0][1].max
+    && blue >= matrix[0][2].min && blue <= matrix[0][2].max) {
       Serial.println("Red"); // Identificado como vermelho
       color = 1;
     }
   // Verificando se a cor é verde
-  else if(red >= matrix[1][0].first && red <= matrix[1][0].second
-    && green >= matrix[1][1].first && green <= matrix[1][1].second
-    && blue >= matrix[1][2].first && blue <= matrix[1][2].second) {
+  else if(red >= matrix[1][0].min && red <= matrix[1][0].max
+    && green >= matrix[1][1].min && green <= matrix[1][1].max
+    && blue >= matrix[1][2].min && blue <= matrix[1][2].max) {
       Serial.println("Green"); // Identificado como verde
       color = 3;
     }
   // Verificando se a cor é azul
-  else if(red >= matrix[2][0].first && red <= matrix[2][0].second
-    && green >= matrix[2][1].first && green <= matrix[2][1].second
-    && blue >= matrix[2][2].first && blue <= matrix[2][2].second) {
+  else if(red >= matrix[2][0].min && red <= matrix[2][0].max
+    && green >= matrix[2][1].min && green <= matrix[2][1].max
+    && blue >= matrix[2][2].min && blue <= matrix[2][2].max) {
       Serial.println("Blue"); // Identificado como azul
       color = 2;
     }
   // Verificando se a cor é branca
-  else if(red >= matrix[3][0].first && red <= matrix[3][0].second
-    && green >= matrix[3][1].first && green <= matrix[3][1].second
-    && blue >= matrix[3][2].first && blue <= matrix[3][2].second) 
+  else if(red >= matrix[3][0].min && red <= matrix[3][0].max
+    && green >= matrix[3][1].min && green <= matrix[3][1].max
+    && blue >= matrix[3][2].min && blue <= matrix[3][2].max) 
     {
       Serial.println("White"); // Identificado como branco
       color = 0; 
