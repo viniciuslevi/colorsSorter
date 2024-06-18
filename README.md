@@ -17,8 +17,19 @@ Este projeto implementa um classificador de cores usando Arduino, um sensor de c
 
 1. Baixe e instale a IDE do Arduino se ainda não tiver.
 2. Abra a IDE do Arduino e crie um novo esboço (sketch).
-3. Copie e cole o código disponível no link: [GitHub Colors Sorter](https://github.com/viniciuslevi/colorsSorter).
-4. Carregue o código no Arduino.
+3. Copie e cole o código disponível no link: [GitHub Colors Sorter](https://github.com/viniciuslevi/colorsSorter.ino).
+4. Conecte os pinos do sensor e dos servo motors como descritos no inicio do código
+5. Carregue o código no Arduino.
+
+### Calibração
+
+É provavel que o sensor não esteja devidamente calibrado com a luz ambiente, por razão da sensibilidade do sensor com a variação da luz ambiente. Deve-se, dessa forma, calibra-lo alterando a matriz de classificação de cores. Para isso, execute os passos listados a seguir:
+
+1. Copie e cole o código disponível no link: [GitHub Algoritmo de Calibracao](https://github.com/viniciuslevi/calibracao-algoritmo.ino).
+2. Coloque no classificador, as cores na seguinte sequencia vermelho, verde, azul e branco.
+3. Abra o Serial Monitor na porta porta 9600.
+4. Carregue o codigo no arduino
+5. Coloque os parâmetros RGB lidos de cada cor pelo sensor e mostrados no Serial Monitor na matriz de classificação do código principal.
 
 ## Dependências
 
